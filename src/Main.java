@@ -248,17 +248,16 @@ public class Main {
      * если b == 0, перехватите исключение и выведите сообщение: "деление на ноль запрещено".
      * прикольное задание. заодно узнал, что такое "infinity" в java :))
      */
-    public static String safeDivide(int a, int b) {
-        double fResult;
+    public static double safeDivide(int a, int b) {
         try {
-            fResult = a / b;
-            return String.valueOf(fResult);
-        } catch(ArithmeticException e) {
-            if (b==0) {
-                return "Деление на ноль запрещено";
+            return (double) a / b;
+        } catch (ArithmeticException e) {
+            if (b == 0) {
+                System.out.println("Деление на ноль запрещено");
             } else {
-                return e.getMessage();
+                System.out.println(e.getMessage());
             }
+            return 0;
         }
     }
 
